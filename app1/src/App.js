@@ -17,16 +17,19 @@ function App() {
         <>
             <Container>
                 <AppNav />
+                <br />
                 <div>
                     <Button onClick={() => getCoins()}>get coins</Button>
                 </div>
                 <br />
-                {coins.map((coin) => (
-                    <div key={coin.id}>
-                        {coin.title}
-                        <br />
-                    </div>
-                ))}
+                <div>
+                    {coins.map((coin) => (
+                        <div key={coin.id}>
+                            {coin.title}
+                            <br />
+                        </div>
+                    ))}
+                </div>
             </Container>
         </>
     )

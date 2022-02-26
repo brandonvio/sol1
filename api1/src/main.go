@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 
@@ -11,11 +12,12 @@ func main() {
 	fmt.Println("vim-go")
 	router := gin.Default()
 	router.Use(CORSMiddleware())
-	router.GET("/albums", apiGetAlbums)
+	router.GET("/prices", apiGetPrices)
 	router.Run()
 }
 
-func apiGetAlbums(c *gin.Context) {
-	_albums := getAlbums()
-	c.IndentedJSON(http.StatusOK, _albums)
+func apiGetPrices(c *gin.Context) {
+	ctx := context.Background()
+	_prices := getPrices(ctx)
+	c.IndentedJSON(http.StatusOK, _prices)
 }
