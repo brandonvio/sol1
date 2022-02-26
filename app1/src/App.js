@@ -1,35 +1,39 @@
 import axios from 'axios'
-import { Container, Button } from 'react-bootstrap'
+import { Card, Container, Button, CardGroup } from 'react-bootstrap'
 import AppNav from './AppNav'
 import { useState, useEffect } from 'react'
 
 function App() {
-    useEffect(() => {
-        console.log('use-effect')
-    })
-    const [coins, setCoins] = useState([])
-    const getCoins = async () => {
-        const coins = await axios.get('http://20.69.90.222:30008/albums')
-        setCoins(coins.data)
-        console.log(coins)
+    const [prices, setPrices] = useState([])
+    const getPrices = async () => {
+        const apiBase = process.env.REACT_APP_API_BASE;
+        const result = await axios.get(`${apiBase}/prices`)
+        setPrices(result.data)
+        console.log(result)
     }
+    useEffect(async () => {
+        await getPrices();
+    },[])
     return (
         <>
             <Container>
                 <AppNav />
                 <br />
-                <div>
-                    <Button onClick={() => getCoins()}>get coins</Button>
-                </div>
-                <br />
-                <div>
-                    {coins.map((coin) => (
-                        <div key={coin.id}>
-                            {coin.title}
-                            <br />
+                <CardGroup>
+                    {prices.map((price) => (
+                        <div key={price.symbol}>
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Body>
+                                    <Card.Title>{price.symbol}</Card.Title>
+                                    <Card.Text>
+                                        {price.price}
+                                    </Card.Text>
+                                    <Button variant="primary">Go somewhere</Button>
+                                </Card.Body>
+                            </Card>
                         </div>
                     ))}
-                </div>
+                </CardGroup>
             </Container>
         </>
     )

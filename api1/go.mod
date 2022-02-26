@@ -2,12 +2,13 @@ module api1
 
 go 1.17
 
-require github.com/gin-gonic/gin v1.7.7
+require (
+	github.com/adshao/go-binance/v2 v2.3.4
+	github.com/gin-gonic/gin v1.7.7
+)
 
 require (
-	github.com/adshao/go-binance/v2 v2.3.4 // indirect
 	github.com/bitly/go-simplejson v0.5.0 // indirect
-	github.com/gin-contrib/cors v1.3.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect
@@ -22,6 +23,7 @@ require (
 	github.com/ugorji/go/codec v1.1.7 // indirect
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9 // indirect
 	golang.org/x/sys v0.0.0-20200116001909-b77594299b42 // indirect
+	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 	nhooyr.io/websocket v1.8.7 // indirect
 )

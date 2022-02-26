@@ -33,11 +33,14 @@
     },
     "overrides": [
         {
-            "files": ["**/*.spec.js", "**/*.spec.jsx", "**/*.test.js"],
+            "files": [
+                "**/*.spec.js",
+                "**/*.spec.jsx",
+                "**/*.test.js"
+            ],
             "env": {
-				"jest": true
-			}
+                "jest": true
+            }
+        }
     ]
-}
-
 }
