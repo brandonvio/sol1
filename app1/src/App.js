@@ -22,13 +22,13 @@ function App() {
                 <CardGroup>
                     {prices.map((price) => (
                         <div key={price.symbol}>
-                            <Card style={{ width: '18rem' }}>
+                            <Card border="success" style={{ width: '18rem' }}>
                                 <Card.Body>
                                     <Card.Title>{price.symbol}</Card.Title>
                                     <Card.Text>
                                         {price.price}
                                     </Card.Text>
-                                    <Button variant="primary">Go somewhere</Button>
+                                    <Button variant="info">Analysis</Button>
                                 </Card.Body>
                             </Card>
                         </div>

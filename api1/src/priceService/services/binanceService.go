@@ -2,7 +2,7 @@ package services
 
 import (
 	"context"
-	"fmt"
+	"log"
 
 	"github.com/adshao/go-binance/v2"
 )
@@ -15,6 +15,7 @@ type price struct {
 }
 
 func GetPrices(ctx context.Context) []*binance.SymbolPrice {
+	log.Println("Getting prices from Binance.")
 	var (
 		apiKey    = "your api key"
 		secretKey = "your secret key"
@@ -24,12 +25,8 @@ func GetPrices(ctx context.Context) []*binance.SymbolPrice {
 	prices, err := client.NewListPricesService().Do(ctx)
 
 	if err != nil {
-		fmt.Println(err)
+		log.Fatalln("An error occurred calling Binance.", err)
 		return nil
-	}
-
-	for _, p := range prices {
-		fmt.Println(p)
 	}
 
 	return prices

@@ -2,10 +2,10 @@ package main
 
 import (
 	"api1/src/priceService/services"
-	"context"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -17,7 +17,6 @@ func main() {
 }
 
 func apiGetPrices(c *gin.Context) {
-	ctx := context.Background()
-	_prices := services.GetPrices(ctx)
+	_prices := services.GetPrices(c)
 	c.IndentedJSON(http.StatusOK, _prices)
 }

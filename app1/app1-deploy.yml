@@ -14,9 +14,11 @@ spec:
             labels:
                 app: app1
         spec:
-            containers:              
+            containers:
             - env:
-              image: docker.io/brandonrvice/rythm-app1:latest
+                - name: REACT_APP_API_BASE
+                  value: http://localhost:8080
+              image: docker.io/brandonvio/rythm-app1:latest
               imagePullPolicy: Always
               name: rythm-app1
               ports:

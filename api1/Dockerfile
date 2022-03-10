@@ -10,7 +10,9 @@ WORKDIR /api
 COPY src .
 COPY go.mod .
 COPY go.sum .
-RUN go get ./...
+RUN go mod download
+
+WORKDIR priceService
 RUN go build
 
 FROM alpine:latest
